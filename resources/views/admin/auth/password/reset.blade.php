@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Dashboard</h1>
+    <h1>reset password</h1>
 </body>
 </html>
