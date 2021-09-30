@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
@@ -10,10 +10,12 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
+
     public function forget_password()
     {
         return view('auth.password.forget');
     }
+    
     public function reset_password()
     {
         return view('auth.password.reset');
