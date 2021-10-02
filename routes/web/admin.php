@@ -7,6 +7,13 @@ use App\Http\Controllers\Admin\LeadController;
 use App\Http\Controllers\Admin\WorkController;
 
 Route::get('/', [PageController::class, 'dashboard']);
-Route::get('/posts',[PostController::class, 'edit'])->name('posts');
-Route::get('/works',[WorkController::class, 'index'] );
-Route::get('/leads',[LeadController::class, 'index'] );
+
+Route::prefix('/posts')->name('posts.')->group(function() {
+    Route::get('/', [PostController::class, 'index'])->name('index');
+    Route::post('/', [PostController::class, 'store'])->name('store');
+    Route::put('/{slug}', [PostController::class, 'edit'])->name('edit');
+    Route::get('/create', [PostController::class, 'create'])->name('create');
+});
+
+Route::get('/works', [WorkController::class, 'index']);
+Route::get('/leads', [LeadController::class, 'index']);

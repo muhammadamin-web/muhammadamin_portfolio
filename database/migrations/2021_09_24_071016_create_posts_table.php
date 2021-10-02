@@ -16,12 +16,12 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('Cascade');
-            $table->enum('status',['published', 'draft']);
-            $table->string('title');
+            $table->enum('status', ['published', 'draft']);
+            $table->string('title', 255);
             $table->text('body');
-            $table->string('image');
-            $table->string('keywords');
-            $table->string('description');
+            $table->string('image', 255);
+            $table->string('keywords', 255);
+            $table->string('description', 255);
             $table->timestamps();
         });
     }
