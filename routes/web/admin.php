@@ -15,5 +15,16 @@ Route::prefix('/posts')->name('posts.')->group(function() {
     Route::get('/create', [PostController::class, 'create'])->name('create');
 });
 
-Route::get('/works', [WorkController::class, 'index']);
-Route::get('/leads', [LeadController::class, 'index']);
+Route::prefix('/leads')->name('leads.')->group(function() {
+    Route::get('/', [LeadController::class, 'index'])->name('index');
+    Route::get('/{slug}', [LeadController::class, 'show'])->name('show');
+    Route::put('/{slug}', [LeadController::class, 'update'])->name('update');
+});
+
+Route::prefix('/works')->name('works.')->group(function() {
+    Route::get('/', [WorkController::class, 'index'])->name('index');
+    Route::get('/create', [WorkController::class, 'create'])->name('create');
+    Route::post('/', [WorkController::class, 'store'])->name('store');
+    Route::get('/{slug}/edit', [WorkController::class, 'edit'])->name('edit');
+});
+ 

@@ -16,4 +16,4 @@ Route::prefix('/posts')->name('posts.')->group(function() {
 Route::name('leads.')->group(function() {
     Route::get('/contact', [LeadController::class, 'create'])->name('create');
     Route::post('/contact', [LeadController::class, 'store'])->name('store');
-});
+}); 
