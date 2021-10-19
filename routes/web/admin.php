@@ -27,4 +27,6 @@ Route::prefix('/works')->name('works.')->group(function() {
     Route::post('/', [WorkController::class, 'store'])->name('store');
     Route::get('/{slug}/edit', [WorkController::class, 'edit'])->name('edit');
 });
+
+
  
