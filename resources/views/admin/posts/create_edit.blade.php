@@ -15,7 +15,7 @@
         <input type="text"va>
     </form>
 
-    @endforeach
+    @endforeach 
 @stop
 
 @section('scripts')
