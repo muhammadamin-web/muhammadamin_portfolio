@@ -49,8 +49,16 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'user_id' => 'required|numeric',
+            'status' => [
+                'required|string',
+                Rule::in(['published', 'draft'])
+            ],
+            'title' => 'required|string|max:255|min:10',
+            'body' => 'required|string|min:50',
+            'keywords' => 'required|string|max|255',
+            'description' => 'required|string|max:255',
+            'image' => 'required|string|max:255'
         ]);
     
         $post->update($request->all());

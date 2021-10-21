@@ -16,7 +16,7 @@ class WorkController extends Controller
 
     public function create()
     {
-        return view('admin.works.create');
+        return view('admin.works.create_edit');
     }
     
     public function store(Request $request)
