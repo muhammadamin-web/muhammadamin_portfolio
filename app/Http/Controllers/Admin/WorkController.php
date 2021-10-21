@@ -32,8 +32,6 @@ class WorkController extends Controller
             'image' => 'required',
             'keywords' => 'required',
             'description' => 'required'
-
-
         ]);
     
         }
