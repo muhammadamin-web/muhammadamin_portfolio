@@ -13,19 +13,17 @@ class WorkController extends Controller
     {
         return view('admin.works.index');
     }
+
     public function create()
     {
         return view('admin.works.create');
-    }
-    public function edit(Work $work)
-    {
-        return view('admin.works.create', compact('work'));
     }
     
     public function store(Request $request)
     {
         $user = Auth::user();
-         $request->validate([
+
+        $request->validate([
             'user_id' => $user->id,
             'title' => 'required',
             'link' => 'required',
@@ -33,6 +31,10 @@ class WorkController extends Controller
             'keywords' => 'required',
             'description' => 'required'
         ]);
-    
-        }
+    }
+
+    public function edit(Work $work)
+    {
+        return view('admin.works.create', compact('work'));
+    }
 }

@@ -10,4 +10,14 @@ class LeadController extends Controller
     {
         return view('admin.leads.index');
     }
+
+    public function show()
+    {
+        return view('admin.leads.show');
+    }
+
+    public function update()
+    {
+        //
+    }
 }
