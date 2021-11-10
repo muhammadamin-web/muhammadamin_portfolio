@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -15,28 +16,35 @@ class PostController extends Controller
         return view('admin.posts.index', compact('posts'));
     }
 
-    public function create()
+    public function create()    
     {
         return view('admin.posts.create_edit');
     }
 
     public function store(Request $request)
-    {
+    {        
         // $user = Auth::user();
         $this->validate($request, [
-            'user_id' => 'required|numeric',
             'status' => [
-                'required|string',
+                'required',
+                'string',
                 Rule::in(['published', 'draft'])
             ],
             'title' => 'required|string|max:255|min:10',
             'body' => 'required|string|min:50',
-            'keywords' => 'required|string|max|255',
+            'keywords' => 'required|string|max:255',
             'description' => 'required|string|max:255',
-            'image' => 'required|string|max:255'
+            'image' => 'required|file'
         ]);
         
-        Post::create($request->all());
+        $image = $request->file('image')->store('posts', 'public');
+
+        $data = collect($request->all())->except(['_token'])->merge([ 
+            'user_id' => 1, 
+            'image' => $image,
+        ])->toArray();
+        
+        Post::create($data);
      
         return redirect()->route('admin.posts.index');
     }
@@ -64,5 +72,7 @@ class PostController extends Controller
         $post->update($request->all());
     
         return redirect()->route('posts.index');
+        
+        
     }
 }

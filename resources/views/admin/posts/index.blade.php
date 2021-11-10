@@ -5,14 +5,21 @@
 @stop
 
 @section('content')
-    <h1>Postlar</h1>
-    @foreach ($postlar as $post)
-    
+    <h1>postlar</h1>
+    @foreach ($posts as $post)
+    <a href="{{route('admin.posts.edit', ['title' => $post->title])}}">
+    <div class="post">
+<h1>{{$post->title}}</h1>
+<h1>{{$post->body}}</h1>
+<img src="{{ asset('storage/' . $post->image) }}" alt="no">
 
+</div>
+</a>
     @endforeach
-@stop
+@stop   
 
 @section('scripts')
 
 @stop
+
 

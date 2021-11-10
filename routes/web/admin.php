@@ -11,7 +11,7 @@ Route::get('/', [PageController::class, 'dashboard']);
 Route::prefix('/posts')->name('posts.')->group(function() {
     Route::get('/', [PostController::class, 'index'])->name('index');
     Route::post('/', [PostController::class, 'store'])->name('store');
-    Route::put('/{slug}', [PostController::class, 'edit'])->name('edit');
+    Route::get('/{title}/edit', [PostController::class, 'edit'])->name('edit');
     Route::get('/create', [PostController::class, 'create'])->name('create');
 });
 

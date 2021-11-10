@@ -18,9 +18,9 @@ class CreateWorksTable extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('Cascade');
             $table->string('title');
             $table->string('image');
+            $table->string('description');
             $table->string('link');
             $table->string('keywords');
-            $table->string('description');
             $table->timestamps();
         });
     }
