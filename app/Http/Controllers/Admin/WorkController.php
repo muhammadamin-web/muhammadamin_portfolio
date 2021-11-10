@@ -3,30 +3,38 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Work;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WorkController extends Controller
 {
     public function index()
     {
-        return view('works.index');
+        return view('admin.works.index');
     }
+
     public function create()
     {
-        return view('works.create');
+        return view('admin.works.create');
     }
-    public function update()
-    {
-        return view('works.create');
-    }
+    
     public function store(Request $request)
     {
-         $request->validate([
-            'title' => 'required',
-            'url' => 'required',
-            'image' => 'required'
+        $user = Auth::user();
 
+        $request->validate([
+            'user_id' => $user->id,
+            'title' => 'required',
+            'link' => 'required',
+            'image' => 'required',
+            'keywords' => 'required',
+            'description' => 'required'
         ]);
-    
-        }
+    }
+
+    public function edit(Work $work)
+    {
+        return view('admin.works.create', compact('work'));
+    }
 }

@@ -8,6 +8,16 @@ class LeadController extends Controller
 {
     public function index()
     {
-        return view('leads.index');
+        return view('admin.leads.index');
+    }
+
+    public function show()
+    {
+        return view('admin.leads.show');
+    }
+
+    public function update()
+    {
+        //
     }
 }
