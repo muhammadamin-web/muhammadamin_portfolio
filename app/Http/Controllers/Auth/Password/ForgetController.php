@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Auth\Password;
 
 use App\Http\Controllers\Controller;
 
-class AuthController extends Controller
+class ForgetController extends Controller
 {
     
-    public function forget_password()
+    public function show()
     {
         return view('auth.password.forget');
     }
-    
+    public function send_link()
+    {
+        // post method
+    }
 }

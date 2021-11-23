@@ -1,59 +1,35 @@
-@extends('admin.master')
-  
+@extends('admin.layouts.master')
+
+@section('meta')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+@stop
+
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Add New Product</h2>
-            </div>
-            <div class="pull-right">
-            </div>
-        </div>
-    </div>
-    
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    
-    <form action="{{ route('admin.posts.store') }}" method="POST">
+    <h1>Yangi post yaratish va o'zgartirish</h1>
+    <form action="{{ route('admin.posts.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-    
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Title:</strong>
-                    <input type="text" name="title" class="form-control" placeholder="Enter Title">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Body:</strong>
-                    <textarea class="form-control" style="height:150px" name="body" placeholder="Enter body"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Keywords:</strong>
-                    <input type="text" name="keywords" class="form-control" placeholder="Key1, Key2, Key3">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Description:</strong>
-                    <textarea class="form-control" style="height:150px" name="description" placeholder="Enter Description"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-    
-    </form>
-@endsection
+        <select name="status" id="">
+            <option value="published">published</option>
+            <option value="draft">draft</option>
+        </select>
+        <input value="ddddddddddddddddddddddddddd" type="text" name="title"placeholder = "title10">
+        <input value="ddddddddddddddddddddddddddddddddddddddddddssssssssssssssssssssssssssssss" type="text" name="body"placeholder = "body50">
+        <input value="ddddddddddddddddddddddddddddddddddddddddd" type="text" name="keywords"placeholder = "keywods">
+        <input value="ddddddddddddddddddddddddddddddddddddddddddddddddddddd" type="text" name="description"placeholder = "description">
+        <input value="2.png" type="file" name="image" />
+        <button type="submit" class="btn btn-primary">Submit</button>
+        
+
+    </form>     
+    <script></script>
+
+@stop
+
+@section('scripts')
+<!-- include libraries(jQuery, bootstrap) -->
+<script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@2.0.0
+
+"></script>
+@stop

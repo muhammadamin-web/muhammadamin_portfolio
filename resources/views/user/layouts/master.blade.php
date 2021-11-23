@@ -2,20 +2,25 @@
 <html lang="uz">
     <head>
 
-        @include('admin.layouts.meta')
+        @include('user.layouts.meta')
         @yield('meta')
         
     </head>
     <body>
+
         <nav>
-        @include('admin.layouts.navbar')
+            @include('user.layouts.navbar')
         </nav>
 
         <div class="container">
             @yield('content')
         </div>
 
-        @include('admin.layouts.scripts')
+        <footer>
+        @include('user.layouts.footer')
+        </footer>
+        
+        @include('user.layouts.scripts')
         @yield('scripts')
 
     </body>
