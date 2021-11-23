@@ -1,11 +1,11 @@
 <?php   
 
-namespace App\Repository\Eloquent;   
+namespace App\Repositories;   
 
-use App\Repository\EloquentRepositoryInterface; 
-use Illuminate\Database\Eloquent\Model;   
+use App\Interfaces\BaseRepositoryInterface; 
+use Illuminate\Database\Eloquent\Model;
 
-class BaseRepository implements EloquentRepositoryInterface 
+class BaseRepository implements BaseRepositoryInterface 
 {     
     /**      
      * @var Model      
@@ -27,18 +27,12 @@ class BaseRepository implements EloquentRepositoryInterface
     *
     * @return Model
     */
-    public function create(array $attributes): Model
+    public function delete(array $attributes): string
     {
-        return $this->model->create($attributes);
+        $this->model->delete($attributes);
+        return "Successfully releted!";
     }
-    // public function delete(array $attributes): Model
-    // {
-    //     return $this->model->delete($attributes);
-    // }
-    // public function update(array $attributes): Model
-    // {
-    //     return $this->model->update($attributes);
-    // }
+    
     /**
     * @param $id
     * @return Model

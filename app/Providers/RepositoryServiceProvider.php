@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use App\Repository\Eloquent\BaseRepository;
-use App\Repository\EloquentRepositoryInterface;
-use App\Repository\KeywordRepositoryInterface;
+use App\Repository\BaseRepository;
+use App\Interfaces\BaseRepositoryInterface;
+use App\Interfaces\KeywordRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -16,7 +16,7 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(EloquentRepositoryInterface::class, BaseRepository::class);
+        $this->app->bind(BaseRepositoryInterface::class, BaseRepository::class);
         $this->app->bind(KeywordRepositoryInterface::class, KeywordRepositoryInterface::class);
     }
 

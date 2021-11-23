@@ -1,20 +1,22 @@
 <?php
-namespace App\Repository;
+
+namespace App\Interfaces;
 
 
 use Illuminate\Database\Eloquent\Model;
 
    /**
-   * Interface EloquentRepositoryInterface
+   * Interface BaseRepositoryInterface
    * @package App\Repositories
    */
-interface EloquentRepositoryInterface
+interface BaseRepositoryInterface
 {
    /**
     * @param array $attributes
     * @return Model
     */
-   public function create(array $attributes): Model;
+   public function delete(array $attributes): string;
+
 
    /**
     * @param $id

@@ -5,10 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Work;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Interfaces\KeywordRepositoryInterface;
 
 class WorkController extends Controller
 {
+    private $keyword;
+
+    public function __construct(KeywordRepositoryInterface $keywordRepository) 
+    {
+        $this->keyword = $keywordRepository;
+    }
+
     public function index()
     {
         $works = Work::all();
