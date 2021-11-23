@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-    <h1>Qoldirilgan Arizalar</h1>
+    <h1>Yangi portfolio yaratish</h1>
 @stop
 
 @section('scripts')

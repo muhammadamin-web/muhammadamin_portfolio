@@ -1,9 +1,18 @@
 @extends('admin.layouts.master')
 
 @section('meta')
-    <title>Muhammadamin portfolio - posts</title>
+<title>Muhammadamin portfolio - posts</title>
 @stop
 
 @section('content')
-    <h1>Hello</h1>
+    <h1>Postlar</h1>
+    @foreach ($postlar as $post)
+    
+
+    @endforeach
 @stop
+
+@section('scripts')
+
+@stop
+

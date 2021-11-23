@@ -6,8 +6,12 @@ use App\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {
-    public function login()
+    public function show()
     {
         return view('auth.login');
+    }
+    public function login()
+    {
+        //post method
     }
 }

@@ -7,9 +7,13 @@ use App\Http\Controllers\Controller;
 class Reset_passwordController extends Controller
 {
 
-    public function reset_password()
+    public function show()
     {
         return view('auth.password.reset');
+    }
+    public function reset_password()
+    {
+        //method post
     }
     
 }
