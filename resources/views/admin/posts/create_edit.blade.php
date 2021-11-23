@@ -20,8 +20,9 @@
         <input value="ddddddddddddddddddddddddddddddddddddddddddddddddddddd" type="text" name="description"placeholder = "description">
         <input value="2.png" type="file" name="image" />
         <button type="submit" class="btn btn-primary">Submit</button>
-        dsdsds
-    </form>
+        
+
+    </form>     
     <script></script>
 
 @stop

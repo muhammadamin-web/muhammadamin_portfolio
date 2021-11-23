@@ -9,7 +9,7 @@
 <form action="{{ route('admin.works.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <input value="2.png" type="file" name="image">
-    <input value="ddddddddddddddddddddddddddddddddddddddddd" type="text" name="link" placeholder="keywods">
+    <input value="link" type="text" name="link" placeholder="keywods">
     <input value="ddddddddddddddddddddddddddddddddddddddddddddddddddddd" type="text" name="title" placeholder="description">
     <input value="ddddddddddddddddddddddddddddddddddddddddddddddddddddd" type="text" name="description" placeholder="description">
     <div class="form-group" name="keywords">

@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Keyword;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use App\Repositories\Eloquent\KeywordRepository;
 
 class PostController extends Controller
 {
+
+
+
     public function index()
     {
         $posts = Post::all();

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth\Password;
 
 use App\Http\Controllers\Controller;
 
-class Reset_passwordController extends Controller
+class ResetController extends Controller
 {
 
     public function show()
